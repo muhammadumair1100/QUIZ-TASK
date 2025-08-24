@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Quiz App</title>
+    <link rel="stylesheet" href="quiz.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>🧠 Quick Quiz</h1>
+      <div class="meta">
+        <div class="badge" id="progressBadge" aria-live="polite">Q 1 / 5</div>
+        <div class="badge ghost" id="scoreBadge" aria-live="polite">
+          Score: 0
+        </div>
+        <div class="badge warn" id="timerBadge" aria-live="polite">
+          Timer: --
+        </div>
+      </div>
+    </header>
+
+    <main class="container" aria-live="polite">
+      <section class="card" id="quizBox">
+        <div class="question">
+          <h2 id="questionText">Question will appear here</h2>
+        </div>
+
+        <form
+          id="optionsForm"
+          class="options"
+          role="radiogroup"
+          aria-label="Answer choices"
+        ></form>
+
+        <div class="actions">
+          <button type="button" class="btn secondary" id="prevBtn" disabled>
+            Previous
+          </button>
+          <button type="button" class="btn primary" id="nextBtn">Next</button>
+          <button type="button" class="btn success" id="submitBtn" disabled>
+            Submit
+          </button>
+          <button type="button" class="btn ghost" id="restartBtn" hidden>
+            Restart
+          </button>
+        </div>
+      </section>
+
+      <section class="card hidden" id="resultBox" aria-hidden="true">
+        <h2>🎉 Quiz Result</h2>
+        <p id="resultSummary">You scored 0/0</p>
+        <ul id="reviewList" class="review"></ul>
+        <div class="actions"></div>
+      </section>
+    </main>
+
+    <template id="option-template">
+      <label class="option">
+        <input type="radio" name="answer" value="" />
+        <span class="text">Option text</span>
+      </label>
+    </template>
+
+    <script src="quiz.js" defer></script>
+  </body>
+</html>
